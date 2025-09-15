@@ -80,10 +80,13 @@
   flex-wrap: wrap;
 }
 
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
 
 .big-box {
   background-color: yellowgreen;
-  width: 500px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   margin: 20px;
 }
