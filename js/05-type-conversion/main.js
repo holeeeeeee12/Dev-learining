@@ -50,3 +50,7 @@ console.log(Boolean("            "));
 console.log(!0);
 console.log(!"");
 console.log(!1);
+console.log(1 || 0);
+console.log(0 || 10);
+
+// false && true
