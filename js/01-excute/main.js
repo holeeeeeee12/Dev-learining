@@ -1,2 +1,1 @@
-console.log("hello World");
-
+message = "Hello World";
