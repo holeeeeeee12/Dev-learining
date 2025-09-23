@@ -20,7 +20,7 @@ async function func() {
     // await 키워드
     // Promise 기반 비동기처리 수행
     const result = 
-    
+
   } catch (error) {
     // 비동기처리가 성공했을 때
     // 비동기처리가 실패했을 때
@@ -28,4 +28,4 @@ async function func() {
   }
 }
 
-려
+
