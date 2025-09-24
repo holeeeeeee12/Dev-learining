@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>클릭</button>
+    <script>
+      // 태그명이 button인 요소를 선택하고, 변수에 할당
+      const buttonTag = document.querySelector("button");
+      buttonTag["textContent"] = "클릭 클릭";
+
+      buttonTag["onclick"] = () => {
+        alert("클릭 클릭");
+      };
+    
+    </script>
+  </body>
+</html>
