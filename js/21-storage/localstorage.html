@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <button>조회</button>
+    <button id="delete">삭제</button>
+  </head>
+  <body>
+    <script>
+      localStorage.setItem("key", "value");
+      localStorage.setItem("키", "값");
+      localStorage.setItem("저녁", "무얼먹어야할까용");
+
+      const button = document.querySelector("button");
+      button.addEventListener("click", () => {
+        // 로클스토리지에서 key가 '저녁'인 데이터를 불러오기
+        const data = localStorage.getItem("저녁");
+        alert(data);
+      });
+      const deletebutton = document.querySelector("#delete");
+      deletebutton.addEventListener("click", () => {
+        localStorage.removeItem("저녁");
+      });
+    </script>
+  </body>
+</html>
