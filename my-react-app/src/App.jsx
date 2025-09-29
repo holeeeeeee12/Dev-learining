@@ -1,22 +1,24 @@
 import React from "react";
-import Rule from "./componets/JSX/Rule";
-import Interpolation from "./componets/JSX/interpolation";
-import Header from "./componets/Header";
-import Footer from "./componets/Footer";
-import Header from "./componets/Header";
-import MyButton from "./componets/MyButton";
-import MyList from "./componets/MyList";
+
+import OnClick from "./componets/EventHandling/OnClick";
+import OnChange from "./componets/EventHandling/OnChange";
+import OnSubmit from "./componets/EventHandling/Onsubmit";
+
+// 컴포넌트 함수 외부는 import 함수 외 X
 
 export default function App() {
   return (
     <div>
       {/* {Interpolation 컴포넌트 불러오기} */}
-      <Header></Header>
+      {/* <Header></Header>
       <Interpolation> </Interpolation>
       <MyButton></MyButton>
       <MyList></MyList>
       <Header></Header>
-      <Footer></Footer>
+      <Footer></Footer>q */}
+      <OnClick></OnClick>
+      <OnChange></OnChange>
+      <OnSubmit></OnSubmit>
     </div>
   );
 }
