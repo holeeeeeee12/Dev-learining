@@ -1,9 +1,10 @@
 import React from "react";
-import Parent from "./componets/PropsChildren/Parent";
+import Container from "./componets/Condition/Container";
+
 export default function App() {
   return (
     <div>
-      <Parent></Parent>
+      <Container></Container>
     </div>
   );
 }

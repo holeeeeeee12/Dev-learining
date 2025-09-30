@@ -21,7 +21,7 @@
 1. 브랜치 생성 
 2. 브랜치 전환 
 3. 작업
-4. `git add.`
+4. `git add .`
 5. `git commit -m "커밋 메세지`
 6. 브렌치 전환 `git switch main`
 7. 브렌츠 병합 `git merge <newbranch>`
