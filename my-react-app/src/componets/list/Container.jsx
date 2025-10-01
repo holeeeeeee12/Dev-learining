@@ -10,6 +10,8 @@ export default function Container() {
     { id: 3, name: "철수" },
     { id: 4, name: "짱구" },
     { id: 5, name: "영희" },
+    { id: 6, name: "우영" },
+    { id: 7, name: "길동" },
   ];
 
   return (
@@ -18,13 +20,15 @@ export default function Container() {
         return <li>{element}</li>;
       })}
       {userArray.map((userElement) => {
-        return <User user={userElement}></User>;
+        return <User key={userElement["id"]} user={userElement}></User>;
         // <li>
         //   {" "}
         //   {user["id"]} - {user["name"]}{" "}
         // </li>
         // );
       })}
+      <User key={1} user={user
     </div>
+
   );
 }
