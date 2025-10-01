@@ -1,11 +1,10 @@
 import React from "react";
-import Container from "./componets/State/Container";
-import StateBasic from "./componets/State/StateBasic";
+import Container from "./componets/StateAdvanced/Container";
 
 export default function App() {
   return (
     <div>
-      <StateBasic></StateBasic>
+      <Container></Container>
     </div>
   );
 }
