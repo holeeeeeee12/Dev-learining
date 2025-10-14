@@ -1,10 +1,9 @@
-import React from "react";
-import Container from "./componets/StateAdvanced/Container";
+import MovieList from "./componets/TMDB/MovieList";
 
 export default function App() {
   return (
     <div>
-      <Container></Container>
+      <MovieList></MovieList>
     </div>
   );
 }
