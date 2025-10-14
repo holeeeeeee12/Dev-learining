@@ -6,6 +6,7 @@ const PATHS = {
     POSTS: "/posts",
     POST_DETAIL: "/posts/:postId",
     getPostDetail: (postId) => `/posts/${postId}`,
+
     PROFILE: "/profile",
   },
   AUTH: {
