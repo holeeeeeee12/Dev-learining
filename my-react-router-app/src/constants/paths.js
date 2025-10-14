@@ -5,7 +5,7 @@ const PATHS = {
     ABOUT: "/about",
     POSTS: "/posts",
     POST_DETAIL: "/posts/:postId",
-    getPostDetail: (postId) => `/post/${postId}`,
+    getPostDetail: (postId) => `/posts/${postId}`,
     PROFILE: "/profile",
   },
   AUTH: {

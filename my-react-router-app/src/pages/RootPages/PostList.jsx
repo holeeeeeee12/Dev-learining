@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
+import PATHS from "../../constants/paths";
+
 export default function PostList() {
   const [posts, setPosts] = useState([]);
   const [searchParams, setSearchParmas] = useSearchParams();

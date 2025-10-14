@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 
 // Outlet 컴포넌트 불러오기
 import { Outlet } from "react-router-dom";
+import PATHS from "../constants/paths";
 
 export default function RootLayout() {
   return (
     <div>
       <div className="flex gap-4 p-2 border-2 border-gray-300">
-        <Link to={PATHS.ROOT.ABOUT}>홈페이지</Link>
-        <Link to={PATHS.ROOT.POSTS}>소개페이지</Link>
-        <Link to="/profile">사용자 정보 페이지</Link>
+        <Link to={PATHS.ROOT.INDEX}>홈페이지</Link>
+        <Link to={PATHS.ROOT.ABOUT}>소개페이지</Link>
+        <Link to={PATHS.ROOT.PROFILE}>사용자 정보 페이지</Link>
         <Link to="/auth">인증 페이지</Link>
         <Link to="/dummy">DummyJSON 실습 페이지</Link>
         <Link to="/posts">Post 목록 페이지</Link>
