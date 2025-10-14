@@ -33,7 +33,7 @@ export default function AuthLayout() {
           className={({ isActive }) =>
             `${baseClass} ${isActive ? activeClass : ""}`
           }
-          to="/auth/signup"
+          to={PATHS.AUTH.SIGHUP}
         >
           회원가입 페이지
         </NavLink>

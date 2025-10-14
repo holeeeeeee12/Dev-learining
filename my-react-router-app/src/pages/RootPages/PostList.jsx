@@ -4,6 +4,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 
+import PATHS from "../../constants/paths";
+
 export default function PostList() {
   const [posts, setPosts] = useState([]);
   const [searchParams, setSearchParmas] = useSearchParams();
@@ -48,7 +50,7 @@ export default function PostList() {
       {posts.map((post) => {
         return (
           <div key={post.id}>
-            <Link to={`/posts/${post.id}`}>
+            <Link to={PATHS.ROOT.getPostDetail(post.id)}>
               No. {post.id} - {post.title}
             </Link>
             <br />
