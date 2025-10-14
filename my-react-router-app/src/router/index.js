@@ -26,10 +26,12 @@ import Posts from "../pages/DummyPages/Posts.jsx";
 import Products from "../pages/DummyPages/Products.jsx";
 import DummyHome from "../pages/DummyPages/DummyHome.jsx";
 
+import PATHS from "../constants/paths.js";
+
 // 라우터 설정 생성
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: PATHS["ROOT"]["INDEX"],
     Component: RootLayout,
     children: [
       // 중첩할 자식 경로 객체를 정의하는 배열
@@ -39,15 +41,15 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "about",
+        path: PATHS.ROOT.ABOUT,
         Component: About,
       },
       {
-        path: "posts",
+        path: PATHS.ROOT.POSTS,
         Component: PostList,
       },
       {
-        path: "posts/:postId",
+        path: PATHS.ROOT.POST_DETAIL,
         Component: PostDetail,
       },
       {
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
         // 보호할 경로와 컴포넌트 정의
         children: [
           {
-            path: "profile",
+            path: PATHS.ROOT.PROFILE,
             Component: Profile,
           },
         ],
@@ -65,7 +67,7 @@ const router = createBrowserRouter([
   },
   // AuthLayout 경로 설정
   {
-    path: "/auth",
+    path: PATHS.AUTH.INDEX,
     Component: AuthLayout,
     children: [
       {
@@ -74,12 +76,12 @@ const router = createBrowserRouter([
       },
       // 로그인 경로(path)와 Component 설정
       {
-        path: "login",
+        path: PATHS.AUTH.LOGIN,
         Component: Login,
       },
       // 회원가입 경로(path)와 Component 설정
       {
-        path: "signup",
+        path: PATHS.AUTH.SIGHUP,
         Component: Signup,
       },
     ],
