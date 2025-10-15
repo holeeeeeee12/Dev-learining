@@ -1,6 +1,6 @@
 import DummyLayout from "../../layout/DummyLayout.jsx";
 import Carts from "../../pages/DummyPages/Carts.jsx";
-import Posts from "../../pages/DummyPages/Posts";
+import Posts from "../../pages/DummyPages/Posts.jsx";
 import Products from "../../pages/DummyPages/Products.jsx";
 import DummyHome from "../../pages/DummyPages/DummyHome.jsx";
 // 경로 상수 불러오기
