@@ -12,9 +12,9 @@ export default function RootLayout() {
         <Link to={PATHS.ROOT.INDEX}>홈페이지</Link>
         <Link to={PATHS.ROOT.ABOUT}>소개페이지</Link>
         <Link to={PATHS.ROOT.PROFILE}>사용자 정보 페이지</Link>
-        <Link to="/auth">인증 페이지</Link>
-        <Link to="/dummy">DummyJSON 실습 페이지</Link>
-        <Link to="/posts">Post 목록 페이지</Link>
+        <Link to={PATHS.ROOT.auth}>인증 페이지</Link>
+        <Link to={PATHS.ROOT.dummy}>DummyJSON 실습 페이지</Link>
+        <Link to={PATHS.ROOT.post}>Post 목록 페이지</Link>
       </div>
       {/* Outlet 컴포넌트 : 중첩된 자식 컴포넌트가 위치할 구멍 */}
       <Outlet />

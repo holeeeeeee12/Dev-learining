@@ -14,6 +14,12 @@ const PATHS = {
     LOGIN: "/auth/login",
     SIGHUP: "/auth/signup",
   },
+  DUMMY: {
+    INDEX: "/dummy",
+    CARTS: "/dummy/carts",
+    POSTS: "/dummy/posts",
+    PRODUCTS: "/dummy/products",
+  },
 };
 
 export default PATHS;

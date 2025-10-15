@@ -14,35 +14,44 @@ import DummyHome from "../pages/DummyPages/DummyHome.jsx";
 
 import rootRoutes from "./routes/rootRoutes.js";
 import authRoutes from "./routes/authRoute.js";
+import dummyRoutes from "./routes/DummyRoute.js";
+import NotFound from "../pages/NotFound.jsx";
 
 // 라우터 설정 생성
 const router = createBrowserRouter([
   ...rootRoutes,
   ...authRoutes,
+  ...dummyRoutes,
+
   {
-    path: "/dummy",
-    Component: DummyLayout,
-    children: [
-      {
-        index: true,
-        Component: DummyHome,
-      },
-      {
-        path: "carts",
-        Component: Carts,
-      },
-      // 로그인 경로(path)와 Component 설정
-      {
-        path: "posts",
-        Component: Posts,
-      },
-      // 회원가입 경로(path)와 Component 설정
-      {
-        path: "products",
-        Component: Products,
-      },
-    ],
+    path: "*", // 별표 : 모든 것에 매핑(일치) 되는 특수문자
+    Component: NotFound,
   },
+  // {
+  //   path: "/dummy",
+
+  //   Component: DummyLayout,
+  //   children: [
+  //     {
+  //       index: true,
+  //       Component: DummyHome,
+  //     },
+  //     {
+  //       path: "carts",
+  //       Component: Carts,
+  //     },
+  //     // 로그인 경로(path)와 Component 설정
+  //     {
+  //       path: "posts",
+  //       Component: Posts,
+  //     },
+  //     // 회원가입 경로(path)와 Component 설정
+  //     {
+  //       path: "products",
+  //       Component: Products,
+  //     },
+  //   ],
+  // },
 ]);
 
 export default router;
