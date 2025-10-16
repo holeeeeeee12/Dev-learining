@@ -7,10 +7,16 @@ import router from "./router";
 // 라우터 설정을 애플리케이션에 적용할 컴포넌트(Provider)
 import { RouterProvider } from "react-router-dom";
 
+import { PersistGate } from "redux-persist/intergration/react";
+import { persistor } from "./store";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* RouterProvider 배치 */}
-    {/* router 속성 : 어떤 라우터 설정을 사용할 것이냐? */}
-    <RouterProvider router={router} />
+    <Provider sotre={store}>
+      {/* RouterProvider 배치 */}
+      {/* router 속성 : 어떤 라우터 설정을 사용할 것이냐? */}
+      <PersistGate persistor={persistor}> </PersistGate>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );
