@@ -7,7 +7,7 @@ import PostDetail from "../../pages/RootPages/PostDetail.jsx";
 import ProtectedLayout from "../../layout/ProtectedLayout.jsx";
 
 // 경로 상수 불러오기
-import PATHS from "./../../constants/paths.js";
+import PATHS from "../../constants/paths.js";
 
 const rootRoutes = [
   {
