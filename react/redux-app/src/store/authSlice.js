@@ -1,13 +1,10 @@
 // 액세스 토큰 상태 관리
 // 로그인, 회원가입, 로그아웃 같은 네트워크 비동기 처리
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 // 로그인 요청을 보낼 인증 서버에 대한 정보
-const SUPABASE_URL = "https://jfsjmxtokcazzpykrxwp.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc2pteHRva2NhenpweWtyeHdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyMDE4NjksImV4cCI6MjA3NTc3Nzg2OX0.n-IAryEgUti5atr30MGszQ-fzStuW3BZDRMuaPPIefw";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // 회원가입 비동기 처리
 const signup = createAsyncThunk(
@@ -41,16 +38,64 @@ const signup = createAsyncThunk(
     }
   }
 );
-
+// 로그인 비동기 처리 액션
+const login = createAsyncThunk(
+  "auth/login", // 이름
+  // 비동기(async) 처리 함수
+  async (data, { rejectWithValue }) => {
+    // 로그인 로직 코드
+    try {
+      const config = {
+        url: `${SUPABASE_URL}/auth/v1/token?grant_type=password`,
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+        },
+        data: {
+          // 로그인 정보
+          email: data.email,
+          password: data.password,
+        },
+      };
+      const res = await axios(config);
+      console.log(res.data); // (임시) 응답 구조 출력
+      return res.data; // 성공 했을 때 전달
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+const logout = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const config = {
+        url: `${SUPABASE_URL}/auth/v1/logout`,
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          // 사용자 인증 정보(토큰)를 함께 전송
+          // 로그아웃 : 누가 로그아웃을 하는지에 대한 정보(토큰)가 필요
+          Authorization: `Bearer ${getState().auth.token}`,
+        },
+      };
+      const res = await axios(config);
+      return res.data;
+    } catch (error) {
+      console.error(error); // (임시) 디버깅용 코드
+      return rejectWithValue(error.res.data);
+    }
+  }
+);
 // 비동기 처리 3개의 상태: 대기, 성공, 실패(거절)
-
 // 초기 상태
 const initialState = {
   token: null, // 액세스 토큰 관리 상태
   error: null, // 에러 여부 관리 상태
   isSignup: false, // 회원가입 성공 여부 관리 상태
 };
-
 // 슬라이스(리듀서 + 액션) 생성
 const authSlice = createSlice({
   name: "auth",
@@ -72,6 +117,15 @@ const authSlice = createSlice({
         // 콜백함수
         state.isSignup = true;
       })
+      .addCase(login.fulfilled, (state, action) => {
+        //login 비동기 처리가 성공 일 때 실행되는 콜백 함수
+        state.token = action.payload["access_token"];
+      })
+      .addCase(logout.fulfilled, (state) => {
+        // 로그아웃이 성공한 상태
+        // token 상태 초기화
+        state.token = null;
+      })
       .addCase(signup.rejected, (state, action) => {
         // action.payload 어디서 왔는가?
         // return rejectWithValue(error["response"]["data"])
@@ -79,8 +133,7 @@ const authSlice = createSlice({
       });
   },
 });
-
 // 액션과 리듀서, 비동기 처리 액션 내보내기
 export const { resetIsSignup } = authSlice.actions;
 export default authSlice.reducer;
-export { signup };
+export { signup, login, logout };
